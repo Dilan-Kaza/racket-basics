@@ -70,7 +70,7 @@
   (match n1
     [(Z) n3]
     [(S a) (match n2
-         [(S b) (mult-helper a (plus n2 n3) n3)]
+         [(S b) (mult-helper a n2 (plus n2 n3))]
      )]
     )
   )
