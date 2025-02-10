@@ -90,7 +90,10 @@
 ;; Sort list into descending order
 ;; HINT: do insertion sort by writing and using the helper below
 (define (sort-desc xs)
-  (sort xs (lambda (x y) (> x y)))
+  (match xs
+    ['() '()]
+    [xs (insert-desc (first xs) (sort-desc (list-tail xs 1)))]
+  )
 )
 
 (module+ test

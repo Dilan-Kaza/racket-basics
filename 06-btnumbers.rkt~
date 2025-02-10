@@ -33,11 +33,8 @@
 ;; BTNumber -> Natural
 ;; Compute the height of a binary tree (leaf has height 0)
 (define (btn-height bt)
-  (match bt
-    [(leaf) 0]
-    [(node n l r) (+ 1 (let ([lv (btn-height l)]) (let ([rv (btn-height r)]) (if (> lv rv) lv rv))))]
-   )
-  )
+  ;; TODO
+  0)
 
 (module+ test
   (check-equal? (btn-height (leaf)) 0)
@@ -47,11 +44,8 @@
 ;; BTNumber -> Natural
 ;; Count the nodes of a binary tree
 (define (btn-count bt)
-  (match bt
-    [(leaf) 0]
-    [(node n l r) (+ 1 (+ (btn-count l) (btn-count r)))]
-   )
-  )
+  ;; TODO
+  0)
 
 (module+ test
   (check-equal? (btn-count (leaf)) 0)
@@ -61,11 +55,8 @@
 ;; BTNumber -> BTNumber
 ;; Compute the mirror image of binary tree
 (define (btn-mirror bt)
-  (match bt
-    [(leaf) (leaf)]
-    [(node n l r) (node n (btn-mirror r) (btn-mirror l))]
-   )
-  )
+  ;; TODO
+  (leaf))
 
 (module+ test
   (check-equal? (btn-mirror (leaf)) (leaf))
@@ -76,10 +67,8 @@
 ;; BTNumber -> Number
 ;; Sum the numbers of a binary tree
 (define (btn-sum bt)
-  (match bt
-    [(leaf) 0]
-    [(node n l r) (+ n (let ([lv (btn-sum l)]) (let ([rv (btn-sum r)]) (if (> lv rv) lv rv))))]
-   )  )
+  ;; TODO
+  0)
 
 (module+ test
   (check-equal? (btn-sum (leaf)) 0)
@@ -89,8 +78,8 @@
 ;; Natural Number -> BTNumber
 ;; Generate a full bt of height h containing given number n at each node
 (define (btn-gen-full h n)
-  (if (= h 0) (leaf) (node n (btn-gen-full (- h 1) n) (btn-gen-full (- h 1) n)))
-  )
+  ;; TODO
+  (leaf))
 
 (module+ test
   (check-equal? (btn-gen-full 0 8) (leaf))
@@ -100,11 +89,8 @@
 ;; BTNumber Number -> Boolean
 ;; Does the bt contain number n?
 (define (btn-contains? bt n)
-  (match bt
-    [(leaf) #f]
-    [(node v l r) (if (= n v) #t (or (btn-contains? l n) (btn-contains? r n)))]
-   )
-  )
+  ;; TODO
+  #f)
 
 (module+ test
   (check-equal? (btn-contains? (leaf) 8) #f)
@@ -116,11 +102,8 @@
 ;; Generate the list of numbers in bt in preorder
 ;; HINT: append is a function that might be helpful
 (define (btn-preorder btn)
-  (match btn
-    [(leaf) '()]
-    [(node n l r) (append (cons n (btn-preorder l)) (btn-preorder r))]
-   )
-  )
+  ;; TODO
+  '())
 
 (module+ test
   (check-equal? (btn-preorder (leaf)) '())
