@@ -11,7 +11,7 @@
 (define (minimize f xs)
   (match xs
    [(list a) a]
-    [xs (if (> (f (list-ref xs 0)) (f (minimize f (list-tail xs 1))) ) (minimize f (list-tail xs 1) ) (list-ref xs 0) )]
+    [xs (let ([min (minimize f (list-tail xs 1))])(if (> (f (list-ref xs 0)) (f min) ) min (list-ref xs 0) ))]
   )
   )
 
@@ -26,12 +26,12 @@
 (define (least < xs)
   (match xs
     [(list a) a]
-    [xs (if (< (first xs) (least < (list-tail xs 1))) (first xs) (least < (list-tail xs 1)))]
+    [xs (let ([leastest (least < (list-tail xs 1))])(if (< leastest (first xs)) leastest (first xs) ))]
    ))
 (define (sort < xs)
   (match xs
      ['() '()]
-    [xs (cons (least < xs) (remove (least < xs) xs equal?))]
+    [xs (cons (least < xs) (sort < (remove (least < xs) xs equal?)))]
       )
   )
 

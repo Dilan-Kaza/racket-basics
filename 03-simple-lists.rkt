@@ -17,7 +17,8 @@
 ;; [Listof Number] -> Natural
 ;; Compute the length of given list of numbers
 (define (length-lon ls)
-  (length ls)
+  (match ls ['() 0] [ls (+ 1 (length-lon (list-tail ls 1)))]
+  )
   )
 
 (module+ test
@@ -76,7 +77,7 @@
 (define (min-lon xs)
   (match xs
    [(list a) a]
-    [xs (if (< (list-ref xs 0) (min-lon (list-tail xs 1)) ) (list-ref xs 0) (min-lon (list-tail xs 1) ) )]
+    [xs (let ([len (min-lon (list-tail xs 1))]) (if (< (list-ref xs 0) len ) (list-ref xs 0) len) )]
   )
   )
 

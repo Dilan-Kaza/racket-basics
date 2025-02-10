@@ -66,11 +66,11 @@
 
 ;; N N -> N
 ;; Multiply two Peano numbers together
-(define (mult-helper n1 n2)
+(define (mult-helper n1 n2 n3)
   (match n1
-    [(Z) n2]
+    [(Z) n3]
     [(S a) (match n2
-         [(S b) (mult-helper a (plus n2 n2))]
+         [(S b) (mult-helper a (plus n2 n3))]
      )]
     )
   )
@@ -79,7 +79,7 @@
     [(Z) (Z)]
     [(S a) (match n2
          [(Z) (Z)]
-         [(S b) (mult-helper a n2)]
+         [(S b) (mult-helper a n2 n2)]
      )]
    )
   )
